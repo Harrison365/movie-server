@@ -250,4 +250,5 @@ movies = [
     score: 0,
   },
 ];
+
 module.exports = movies;
