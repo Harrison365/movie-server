@@ -21,4 +21,4 @@
 
 - Write a seed file. this will require the connection to the database (using pg), and pg-format (to insert the data in the correct SQL format).
 
-- Write a run-seed file for the dev data to be seeded (this will require an npm script)
+- Write a run-seed file for the dev data to be seeded (you can make an npm script for this)
