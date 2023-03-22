@@ -22,3 +22,36 @@
 - Write a seed file. this will require the connection to the database (using pg), and pg-format (to insert the data in the correct SQL format).
 
 - Write a run-seed file for the dev data to be seeded (you can make an npm script for this)
+
+- npm i express -D
+
+- This will allow you to create your express app file.
+
+```js
+const express = require("express");
+const app = express();
+
+module.exports = app;
+```
+
+- Now, install jest (npm i jest -D), this allows testing as usual.
+
+- Then supertest (npm i supertest -D), this allows tests to make api requests.
+
+- So that we can create out test file.
+
+```js
+const seed = require("../db/seeds/seed");
+const data = require("../db/data/test-data");
+const db = require("../db/connection");
+const app = require("../app");
+const request = require("supertest");
+
+beforeEach(() => {
+  return seed(data);
+});
+
+afterAll(() => {
+  return db.end();
+});
+```

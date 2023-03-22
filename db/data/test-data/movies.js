@@ -1,4 +1,4 @@
-modules.export = [
+const movies = [
   {
     movie_name: "Boy",
     director: "Taika Waititi",
@@ -50,3 +50,5 @@ modules.export = [
     score: 0,
   },
 ];
+
+module.exports = movies;

@@ -2,7 +2,7 @@ const db = require("./connection");
 const format = require("pg-format");
 
 const seed = ({ movies, users, reviews }) => {
-  return db.query(`DROP TABLE IF EXISTS reviews;`).then(() => {
+  return db.query(`DROP TABLE IF EXISTS movie_reviews;`).then(() => {
     return db
       .query(`DROP TABLE IF EXISTS movies;`)
       .then(() => {
@@ -10,12 +10,12 @@ const seed = ({ movies, users, reviews }) => {
       })
       .then(() => {
         return db.query(
-          `CREATE TABLE movies (movie_id SERIAL PRIMARY KEY, movie_name VARCHAR(200) NOT NULL, director VARCHAR(150) NOT NULL, release_year INT NOT NULL, duration INT NOT NULL, image_url VARCHAR DEFAULT 'https://d3aa3603f5de3f81cb9fdaa5c591a84d5723e3cb.hosting4cdn.com/wp-content/uploads/2020/11/404-poster-not-found-CG17701-1.png', votes INT NOT NULL, score INT NOT NULL)`
+          `CREATE TABLE users (user_id SERIAL PRIMARY KEY, username VARCHAR(255) UNIQUE, display_name VARCHAR(100) NOT NULL, profile_pic VARCHAR DEFAULT 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png', bio VARCHAR(400) NOT NULL, joined TIMESTAMP DEFAULT CURRENT_TIMESTAMP);`
         );
       })
       .then(() => {
         db.query(
-          `CREATE TABLE users (user_id SERIAL PRIMARY KEY, username VARCHAR(255) UNIQUE, display_name VARCHAR(100) NOT NULL, profile_pic VARCHAR DEFAULT 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png', bio VARCHAR(400) NOT NULL, joined TIMESTAMP DEFAULT CURRENT_TIMESTAMP);`
+          `CREATE TABLE movies (movie_id SERIAL PRIMARY KEY, movie_name VARCHAR(200) NOT NULL, director VARCHAR(150) NOT NULL, release_year INT NOT NULL, duration INT NOT NULL, image_url VARCHAR DEFAULT 'https://d3aa3603f5de3f81cb9fdaa5c591a84d5723e3cb.hosting4cdn.com/wp-content/uploads/2020/11/404-poster-not-found-CG17701-1.png', votes INT NOT NULL, score INT NOT NULL)`
         );
       })
       .then(() => {
