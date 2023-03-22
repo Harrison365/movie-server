@@ -55,3 +55,11 @@ afterAll(() => {
   return db.end();
 });
 ```
+
+- Write tests
+
+- Write app endpoint
+
+- Write controller
+
+- Write models
