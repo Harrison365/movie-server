@@ -5,7 +5,7 @@
   This will allow you to access your dbs using javascript.
 
 - npm i dotenv
-  This will allow you to create the connection.js file.
+  This will allow you to create the connection.js file that connects to either test or development dbs.
 
 - Create a connection.js (aka index) file
   This will allow you to connect to the relevant db.
