@@ -5,4 +5,3 @@ const { getMovies } = require("./controllers/getMovies");
 app.get("/api/movies", getMovies);
 
 module.exports = app;
-//yo
