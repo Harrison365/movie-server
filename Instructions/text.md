@@ -63,3 +63,5 @@ afterAll(() => {
 - Write controller
 
 - Write models
+
+-Add sad path tests and error handling middleware
